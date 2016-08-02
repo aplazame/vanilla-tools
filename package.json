@@ -1,6 +1,6 @@
 {
   "name": "vanilla-tools",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "bundle.js",
   "scripts": {
