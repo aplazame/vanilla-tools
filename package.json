@@ -1,0 +1,16 @@
+{
+  "name": "vanilla-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "classlist.js": "^1.1.20150312",
+    "nitro-tools": "^0.2.1",
+    "q-promise": "^0.3.2"
+  }
+}
