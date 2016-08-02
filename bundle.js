@@ -13,7 +13,9 @@ require('classlist.js'); // https://developer.mozilla.org/es/docs/Web/API/Elemen
 var extend = require('nitro-tools/extend');
 
 function _ (selector, source) {
-  return (source || document).querySelector(selector);
+  return source && typeof source === 'string' ?
+		selector.querySelector(source) :
+		(source || document).querySelector(selector);
 }
 
 extend.extend(_, extend);
@@ -52,3 +54,5 @@ _.extend(_,
 	// _,scroll.inAnimation === true | false
 
 );
+
+module.exports = _;
