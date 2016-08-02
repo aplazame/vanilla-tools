@@ -1,8 +1,5 @@
 
-[![aplazame](https://camo.githubusercontent.com/323543b20f9dda6eaaab6d5cae1426f954a819f3/68747470733a2f2f61706c617a616d652e636f6d2f6173736574732f6c6f676f732f736d616c6c2d76657273696f6e2d6c6f676f2d7765622d636f6c6f722e706e67)](aplazame)
-
-[![npm](https://docs.npmjs.com/images/favicon.ico)](npm) vanilla-tools
------------
+![github-vanilla-tools](https://cloud.githubusercontent.com/assets/2305833/17345687/71da2546-5907-11e6-8381-62895ac29c84.png)
 
 [![npm version](https://badge.fury.io/js/vanilla-tools.svg)](https://www.npmjs.com/package/vanilla-tools)
 
@@ -13,9 +10,9 @@ npm install vanilla-tools --save
 ```
 
 #### npm dependencies
-- classList.js
-- nitro-tools
-- q-promise
+- [classlist.js](https://www.npmjs.com/package/classlist.js)
+- [nitro-tools](https://www.npmjs.com/package/nitro-tools)
+- [q-promise](https://www.npmjs.com/package/q-promise)
 
 > polyfills
 
