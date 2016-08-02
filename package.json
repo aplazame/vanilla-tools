@@ -10,8 +10,12 @@
   "author": "Jesús Germade <jesus@aplazame.com>",
   "license": "ISC",
   "dependencies": {
+    "bezier-easing": "^2.0.3",
     "classlist.js": "^1.1.20150312",
     "nitro-tools": "^0.2.1",
     "q-promise": "^0.3.2"
+  },
+  "devDependencies": {
+    "nitro": "^1.8.4"
   }
 }
