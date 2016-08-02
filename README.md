@@ -1,5 +1,5 @@
 
-![github-vanilla-tools](https://cloud.githubusercontent.com/assets/2305833/17345687/71da2546-5907-11e6-8381-62895ac29c84.png)
+![github-vanilla-tools](https://cloud.githubusercontent.com/assets/2305833/17345856/68096ddc-5908-11e6-947c-eb7dd698005c.png)
 
 [![npm version](https://badge.fury.io/js/vanilla-tools.svg)](https://www.npmjs.com/package/vanilla-tools)
 
