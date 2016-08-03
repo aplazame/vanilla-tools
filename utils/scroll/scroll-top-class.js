@@ -1,11 +1,8 @@
 
-var scroll = require('./scroll-basic');
+var scroll = require('./scroll-basic'),
+    onScroll = function () {
+      document.documentElement.classList.toggle('scroll-top', !scroll.top() );
+    };
 
-scroll.on(function () {
-  document.documentElement.classList.toggle('scroll-top', !scrollRoot.scrollTop);
-});
-
-_.on(document, 'page:updated', function () {
-  document.documentElement.classList.add('scroll-top');
-});
-document.documentElement.classList.add('scroll-top');
+scroll.on(onScroll);
+onScroll();

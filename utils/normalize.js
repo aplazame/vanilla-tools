@@ -1,6 +1,6 @@
 
 var normalize = {
-  touchDevice: 'ontouchstart' in document.documentElement,
+  isTouchDevice: 'ontouchstart' in document.documentElement,
   isMac: /^Mac/.test(navigator.platform),
   isAndroid: /^Android/.test(navigator.platform)
 };

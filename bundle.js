@@ -21,6 +21,7 @@ function _ (selector, source) {
 extend.extend(_, extend);
 
 _.extend(_,
+  require('nitro-tools/type'),
 	require('nitro-tools/key'),
 	require('nitro-tools/path')
 );
@@ -34,18 +35,19 @@ _.extend(_, {
 	template: require('./fn/template')
 });
 
-_.extend(_,
-	require('./utils/events'),
+_.extend(_, require('./utils/events')
 	// _.on(el, eventName, handler, useCapture)
 	// _.off(el, eventName, handler, useCapture)
 	// _.triggerEvent(element, eventName, data)
+);
 
-	require('./utils/normalize'),
+_.extend(_, {
+	normalize: require('./utils/normalize'),
 	// _.touchDevice === true | false
 	// _.isMac === true | false
 	// _.isAndroid === true | false
 
-	require('./utils/scroll')
+	scroll: require('./utils/scroll')
 	// _.scroll.on( handler, useCapture )
 	// _.scroll.off( handler, useCapture )
 	// _.scroll.top()
@@ -53,6 +55,6 @@ _.extend(_,
 	// _.scroll.animateTo(value | HTMLElement, callback, duration): Promise
 	// _,scroll.inAnimation === true | false
 
-);
+});
 
 module.exports = _;

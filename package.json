@@ -1,6 +1,6 @@
 {
   "name": "vanilla-tools",
-  "version": "1.0.8",
+  "version": "1.1.1",
   "description": "",
   "main": "bundle.js",
   "scripts": {
@@ -16,6 +16,6 @@
     "q-promise": "^0.3.2"
   },
   "devDependencies": {
-    "nitro": "^1.8.4"
+    "nitro": "^1.8.6"
   }
 }

@@ -3,7 +3,7 @@ var scroll = require('./scroll-basic'),
 	animate = require('../../deferred/animate'),
 	$q = require('q-promise'),
 	noop = function() {},
-	scrollAnimation = _.animate(_.noop, 0),
+	scrollAnimation = animate(noop, 0),
 	aux;
 
 scroll.animation = function () {
