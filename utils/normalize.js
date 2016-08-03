@@ -5,7 +5,7 @@ var normalize = {
   isAndroid: /^Android/.test(navigator.platform)
 };
 
-document.documentElement.classList.add( normalize.touchDevice ? 'touch' : 'no-touch' );
+document.documentElement.classList.add( normalize.isTouchDevice ? 'touch' : 'no-touch' );
 if( normalize.isMac ) {
   document.documentElement.classList.add('is-mac');
 }

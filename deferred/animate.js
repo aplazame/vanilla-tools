@@ -1,6 +1,7 @@
 
 var $q = require('q-promise'),
     timingFunctions = {},
+    noop = function () {},
     getTimingFunction = function (timingFunctionName) {
       if( !timingFunctions[timingFunctionName] ) {
         if( timingFunctionName === 'linear' ) {
@@ -51,7 +52,7 @@ function animate (progressFn, duration, atEnd, timingFunctionName) {
             stopped = true;
             progressFn(1);
             deferred.resolve();
-            (atEnd || _noop)();
+            (atEnd || noop)();
           } else {
             progressFn( timingFunction(elapsed/duration) );
           }
