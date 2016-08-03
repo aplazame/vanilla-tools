@@ -18,6 +18,8 @@ function _ (selector, source) {
 		(source || document).querySelector(selector);
 }
 
+_.noop = function (value) { return value; };
+
 extend.extend(_, extend);
 
 _.extend(_,
@@ -35,10 +37,16 @@ _.extend(_, {
 	template: require('./fn/template')
 });
 
-_.extend(_, require('./utils/events')
+_.extend(_,
+  require('./utils/events'),
 	// _.on(el, eventName, handler, useCapture)
 	// _.off(el, eventName, handler, useCapture)
 	// _.triggerEvent(element, eventName, data)
+
+  require('./utils/dom')
+  // _.create(tagName, attrs)
+	// _.attr(el, name, value)
+  // _.tmpClass(el, className, duration, cb)
 );
 
 _.extend(_, {
