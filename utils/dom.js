@@ -29,5 +29,20 @@ module.exports = {
         cb();
       }
     }, duration instanceof Function ? duration() : duration );
+  },
+  formParams: function (form) {
+    var data = {};
+    [].forEach.call(form.elements, function (el) {
+      if( el.name && !el.disabled ) {
+        if( el.type === 'radio' ) {
+          if( el.checked ) {
+            data[el.name] = el.value;
+          }
+        } else {
+          data[el.name] = el.value;
+        }
+      }
+    });
+    return data;
   }
 };
