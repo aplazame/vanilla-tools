@@ -29,7 +29,8 @@ _.extend(_,
 );
 
 _.extend(_, {
-	animate: require('./deferred/animate')
+	animate: require('./deferred/animate'),
+	wait: require('./deferred/wait')
 });
 
 _.extend(_, {
