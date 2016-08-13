@@ -7,7 +7,7 @@ var $q = require('q-promise'),
 		if( callback && !(callback instanceof Function) ) {
 			throw new Error('callback should be a Function');
 		}
-		if( !(delay instanceof Number) ) {
+		if( typeof delay !== 'number' ) {
 			throw new Error('delay should be a Number');
 		}
 		return $q(function (resolve, reject) {
