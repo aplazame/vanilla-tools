@@ -1,5 +1,7 @@
 
-function getScrollRoot(){
+var scrollRoot;
+
+function getScrollRoot() {
     if( document.documentElement.scrollTop ) {
       return document.documentElement;
     } else if ( document.body.scrollTop ) {
@@ -7,21 +9,18 @@ function getScrollRoot(){
     }
 
     var html = document.documentElement, body = document.body,
-        cacheTop = ((typeof window.pageYOffset !== "undefined") ? window.pageYOffset : null) || body.scrollTop || html.scrollTop, // cache the window's current scroll position
-        root;
+        cacheTop = ((typeof window.pageYOffset !== "undefined") ? window.pageYOffset : null) || body.scrollTop || html.scrollTop; // cache the window's current scroll position
 
     html.scrollTop = body.scrollTop = cacheTop + (cacheTop > 0) ? -1 : 1;
     // find root by checking which scrollTop has a value larger than the cache.
-    root = (html.scrollTop !== cacheTop) ? html : body;
+    scrollRoot = (html.scrollTop !== cacheTop) ? html : body;
 
-    root.scrollTop = cacheTop; // restore the window's scroll position to cached value
+    scrollRoot.scrollTop = cacheTop; // restore the window's scroll position to cached value
 
-    return root; // return the scrolling root element
+    return scrollRoot; // return the scrolling root element
 }
 
-var scrollRoot = getScrollRoot(),
-    scroll = {
-      root: scrollRoot,
+var scroll = {
       on: function ( handler, useCapture ) {
         return document.addEventListener('scroll', handler, useCapture);
       },
@@ -35,5 +34,9 @@ var scrollRoot = getScrollRoot(),
         scrollRoot.scrollTop = value;
       }
     };
+
+require('../../fn/ready')(function () {
+  scroll.root = getScrollRoot();
+});
 
 module.exports = scroll;
