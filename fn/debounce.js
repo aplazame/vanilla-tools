@@ -8,6 +8,7 @@ function debounce (fn, timeslot) {
 
     if( timer ) {
       clearTimeout(timer);
+      timer = null;
     }
 
     timer = setTimeout(function () {
