@@ -1,24 +1,23 @@
+var readyListeners = [],
+    initReady = function () {
+      var listeners = readyListeners;
+      readyListeners = undefined;
+      [].forEach.call(listeners, function (cb) { cb(); });
+      document.removeEventListener('DOMContentLoaded', initReady);
+      window.removeEventListener('load', initReady);
+    };
 
-var pageRunning = false,
-    listeners = [];
+document.addEventListener('DOMContentLoaded', initReady);
+window.addEventListener('load', initReady);
 
 function ready (callback) {
   if( callback instanceof Function ) {
-    if( pageRunning ) {
-      ready.listeners.push(callback);
+    if( readyListeners ) {
+      readyListeners.push(callback);
     } else {
       callback();
     }
   }
 }
-ready.init = function () {
-  [].forEach.call(listeners, function (cb) { cb(); });
-  listeners.splice(0, listeners.length);
-  pageRunning = true;
-  document.removeEventListener('DOMContentLoaded', ready.init);
-  window.removeEventListener('load', ready.init);
-};
-document.addEventListener('DOMContentLoaded', ready.init);
-window.addEventListener('load', ready.init);
 
 module.exports = ready;

@@ -29,7 +29,8 @@ _.extend(_,
 );
 
 _.extend(_, {
-	animate: require('./deferred/animate')
+	animate: require('./deferred/animate'),
+	wait: require('./deferred/wait')
 });
 
 _.extend(_, {
@@ -54,15 +55,18 @@ _.extend(_, {
 	// _.touchDevice === true | false
 	// _.isMac === true | false
 	// _.isAndroid === true | false
+});
 
-	scroll: require('./utils/scroll')
-	// _.scroll.on( handler, useCapture )
-	// _.scroll.off( handler, useCapture )
-	// _.scroll.top()
-	// _.scroll.goto(value)
-	// _.scroll.animateTo(value | HTMLElement, callback, duration): Promise
-	// _,scroll.inAnimation === true | false
-
+_.ready(function () {
+	_.extend(_, {
+		scroll: require('./utils/scroll') // scroll is not available until document is ready
+		// _.scroll.on( handler, useCapture )
+		// _.scroll.off( handler, useCapture )
+		// _.scroll.top()
+		// _.scroll.goto(value)
+		// _.scroll.animateTo(value | HTMLElement, callback, duration): Promise
+		// _,scroll.inAnimation === true | false
+	});
 });
 
 module.exports = _;

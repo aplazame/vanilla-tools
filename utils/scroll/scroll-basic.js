@@ -1,5 +1,5 @@
 
-function getScrollRoot(){
+function getScrollRoot () {
     if( document.documentElement.scrollTop ) {
       return document.documentElement;
     } else if ( document.body.scrollTop ) {
