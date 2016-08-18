@@ -35,7 +35,8 @@ _.extend(_, {
 
 _.extend(_, {
 	ready: require('./fn/ready'),
-	template: require('./fn/template')
+	template: require('./fn/template'),
+	debounce: require('./fn/debounce')
 });
 
 _.extend(_,
