@@ -1,5 +1,5 @@
 
-module.exports = {
+var _dom = {
   create: function (tagName, attrs) {
     var el = document.createElement(tagName);
     if( attrs ) {
@@ -15,22 +15,40 @@ module.exports = {
     return el;
   },
   attr: function (el, name, value) {
+    if( el.length ) {
+      el = el[0];
+    }
     if( value !== undefined ) {
       el.setAttribute(name, value);
     }
     return el.getAttribute(name);
   },
   tmpClass: function (el, className, duration, cb) {
-    el.classList.add(className);
-    // console.log('tmpClass', className, duration instanceof Function ? duration() : duration );
+    if( el.length ) {
+      [].forEach.call(el, function (_el) {
+        _el.classList.add(className);
+      });
+    } else {
+      el.classList.add(className);
+    }
     setTimeout(function () {
-      el.classList.remove(className);
+      if( el.length ) {
+        [].forEach.call(el, function (_el) {
+          _el.classList.remove(className);
+        });
+      } else {
+        el.classList.remove(className);
+      }
       if( cb instanceof Function ) {
         cb();
       }
     }, duration instanceof Function ? duration() : duration );
   },
   formParams: function (form) {
+    if( form.length ) {
+      form = form[0];
+    }
+
     var data = {};
     [].forEach.call(form.elements, function (el) {
       if( el.name && !el.disabled ) {
@@ -46,3 +64,5 @@ module.exports = {
     return data;
   }
 };
+
+module.exports = _dom;
