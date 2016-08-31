@@ -45,7 +45,7 @@ var _dom = {
     }, duration instanceof Function ? duration() : duration );
   },
   formParams: function (form) {
-    if( form.length ) {
+    if( !(form instanceof Element) && form.length ) {
       form = form[0];
     }
 

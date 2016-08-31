@@ -1,5 +1,4 @@
-
-[![github-vanilla-tools](https://cloud.githubusercontent.com/assets/2305833/17345856/68096ddc-5908-11e6-947c-eb7dd698005c.png)](https://aplazame.com)
+![github-banner](https://cloud.githubusercontent.com/assets/2305833/18123130/ca66cd74-6f6c-11e6-9eca-a555f6be6654.png)
 
 [![npm version](https://badge.fury.io/js/vanilla-tools.svg)](https://www.npmjs.com/package/vanilla-tools)
 
