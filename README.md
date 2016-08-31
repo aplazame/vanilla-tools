@@ -1,4 +1,4 @@
-![github-banner](https://cloud.githubusercontent.com/assets/2305833/18123130/ca66cd74-6f6c-11e6-9eca-a555f6be6654.png)
+![github-banner](https://cloud.githubusercontent.com/assets/2305833/18123300/96708ec8-6f6d-11e6-8f3e-0de81467425e.png)
 
 [![npm version](https://badge.fury.io/js/vanilla-tools.svg)](https://www.npmjs.com/package/vanilla-tools)
 
