@@ -71,8 +71,9 @@ function animate (progressFn, duration, atEnd, timingFunctionName) {
 
 animate.time = function (el) {
   var time = 0;
-  if( window.getComputedStyle(el).animationDuration ) {
-    window.getComputedStyle(el).animationDuration.replace(/([0-9](\.[0-9])?)(m)?s/, function (matched, t, decimals, ms) {
+  var duration = window.getComputedStyle(el).animationDuration || window.getComputedStyle(el).transitionDuration;
+  if( duration ) {
+    duration.replace(/([0-9](\.[0-9])?)(m)?s/, function (matched, t, decimals, ms) {
       time += ms ? Number(t) : Number(t)*1000;
     });
   }
