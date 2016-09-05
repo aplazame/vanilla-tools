@@ -15,7 +15,7 @@ var _dom = {
     return el;
   },
   attr: function (el, name, value) {
-    if( el && el[0] instanceof Element ) {
+    if( !(el instanceof Element) && el[0] instanceof Element ) {
       el = el[0];
     }
     if( value !== undefined ) {
