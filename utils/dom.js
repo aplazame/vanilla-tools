@@ -2,6 +2,7 @@
 var _dom = {
   create: function (tagName, attrs) {
     var el = document.createElement(tagName);
+    
     if( attrs ) {
       if( attrs.html ) {
         el.innerHTML = attrs.html;
@@ -24,7 +25,9 @@ var _dom = {
     return el.getAttribute(name);
   },
   tmpClass: function (el, className, duration, cb) {
-    if( el.length ) {
+    var isCollection = !(el instanceof Element ) && el.length;
+
+    if( isCollection ) {
       [].forEach.call(el, function (_el) {
         _el.classList.add(className);
       });
@@ -32,7 +35,7 @@ var _dom = {
       el.classList.add(className);
     }
     setTimeout(function () {
-      if( el.length ) {
+      if( isCollection ) {
         [].forEach.call(el, function (_el) {
           _el.classList.remove(className);
         });
