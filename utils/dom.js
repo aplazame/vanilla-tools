@@ -1,8 +1,12 @@
 
 var _dom = {
+  currentScript: document.currentScript || (function() {
+    var scripts = document.getElementsByTagName('script');
+    return scripts[scripts.length - 1];
+  })(),
   create: function (tagName, attrs) {
     var el = document.createElement(tagName);
-    
+
     if( attrs ) {
       if( attrs.html ) {
         el.innerHTML = attrs.html;

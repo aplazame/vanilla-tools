@@ -1,5 +1,5 @@
 
-require('./browser-polyfills/current-script');
+// require('./browser-polyfills/current-script');
 require('./browser-polyfills/date');
 require('./browser-polyfills/dom-closest');
 require('./browser-polyfills/event-listener');
