@@ -19,6 +19,7 @@ function _ (selector, source) {
 }
 
 _.noop = function (value) { return value; };
+_.q = require('q-promise/no-native');
 
 extend.extend(_, extend);
 

@@ -1,5 +1,5 @@
 
-var $q = require('q-promise'),
+var $q = require('q-promise/no-native'),
 	wait = function (delay, callback) {
 		if( delay instanceof Function ) {
 			delay = [callback, callback = delay][0];

@@ -1,11 +1,11 @@
 
 module.exports = function (scroll) {
-	
+
 	var animate = require('../../deferred/animate'),
-		$q = require('q-promise'),
-		noop = function() {},
-		scrollAnimation = animate(noop, 0),
-		aux;
+			$q = require('q-promise/no-native'),
+			noop = function() {},
+			scrollAnimation = animate(noop, 0),
+			aux;
 
 	scroll.animation = function () {
 		return scrollAnimation;

@@ -1,5 +1,5 @@
 
-var $q = require('q-promise'),
+var $q = require('q-promise/no-native'),
     timingFunctions = {},
     noop = function () {},
     getTimingFunction = function (timingFunctionName) {
