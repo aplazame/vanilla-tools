@@ -34,7 +34,7 @@ module.exports = function (scroll) {
 		  scroll.goto( scrollFrom + scrollDelta*progress );
 		}, function () {
 		  scroll.inAnimation = false;
-		  (cb || _.noop)();
+		  (cb || noop)();
 		}, duration || 350, 'ease-out');
 
 		return scrollAnimation;
