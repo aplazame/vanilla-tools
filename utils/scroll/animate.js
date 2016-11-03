@@ -20,9 +20,9 @@ module.exports = function (scroll) {
 		}
 
 		if( typeof cb === 'number' ) {
-		  aux = cb;
+		  aux = duration;
 		  duration = cb;
-		  cb = aux;
+		  cb = typeof aux === 'function' ? aux : noop;
 		}
 
 		var scrollFrom = scroll.top(),
