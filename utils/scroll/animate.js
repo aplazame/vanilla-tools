@@ -16,7 +16,7 @@ module.exports = function (scroll) {
 		  return $q.reject();
 		}
 		if( value instanceof Element ) {
-		  value = value.offsetTop;
+		  value = value.getBoundingClientRect().top;
 		}
 
 		if( typeof cb === 'number' ) {
