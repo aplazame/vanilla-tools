@@ -12,11 +12,14 @@ module.exports = function (scroll) {
 	};
 
 	scroll.animateTo = function (value, cb, duration ) {
+		var scrollFrom = scroll.top();
+
 		if( value === undefined ) {
 		  return $q.reject();
 		}
 		if( value instanceof Element ) {
-		  value = value.getBoundingClientRect().top;
+			// position from top of the page
+			value = value.getBoundingClientRect().top + scrollFrom;
 		}
 
 		if( typeof cb === 'number' ) {
@@ -25,8 +28,7 @@ module.exports = function (scroll) {
 		  cb = typeof aux === 'function' ? aux : noop;
 		}
 
-		var scrollFrom = scroll.top(),
-		    scrollDelta = value - scrollFrom;
+		var scrollDelta = value - scrollFrom;
 
 		scrollAnimation.stop();
 		scroll.inAnimation = true;
