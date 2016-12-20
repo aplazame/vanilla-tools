@@ -24,6 +24,11 @@ _.once = function (fn) {
     fn = null;
   };
 };
+_.now = Date.now ? function () {
+  return Date.now();
+} : function () {
+  return new Date().getTime();
+};
 
 _.usePolyfills = _.once(function () {
   require('./browser-polyfills');

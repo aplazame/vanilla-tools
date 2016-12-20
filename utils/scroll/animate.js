@@ -2,7 +2,7 @@
 module.exports = function (scroll) {
 
 	var animate = require('../../deferred/animate'),
-			$q = require('q-promise/no-native'),
+			Parole = require('parole'),
 			noop = function() {},
 			scrollAnimation = animate(noop, 0),
 			aux;
@@ -15,7 +15,7 @@ module.exports = function (scroll) {
 		var scrollFrom = scroll.top();
 
 		if( value === undefined ) {
-		  return $q.reject();
+		  return Parole.reject();
 		}
 		if( value instanceof Element ) {
 			// position from top of the page

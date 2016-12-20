@@ -20,7 +20,7 @@ var Parole = require('parole'),
       return timingFunctions[timingFunctionName];
     };
 
-var now = Date.now ? () {
+var now = Date.now ? function () {
   return Date.now();
 } : function () {
   return new Date().getTime();
