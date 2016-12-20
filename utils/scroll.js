@@ -1,13 +1,14 @@
 
 function getScrollRoot () {
-    if( document.documentElement.scrollTop ) {
-      return document.documentElement;
-    } else if ( document.body.scrollTop ) {
-      return document.body;
+    var html = document.documentElement, body = document.body;
+    if( html.scrollTop ) {
+      return html;
+    }
+    if ( body.scrollTop ) {
+      return body;
     }
 
-    var html = document.documentElement, body = document.body,
-        cacheTop = ((typeof window.pageYOffset !== "undefined") ? window.pageYOffset : null) || body.scrollTop || html.scrollTop, // cache the window's current scroll position
+    var cacheTop = ((typeof window.pageYOffset !== "undefined") ? window.pageYOffset : null), // cache the window's current scroll position
         root;
 
     html.scrollTop = body.scrollTop = cacheTop + (cacheTop > 0) ? -1 : 1;
