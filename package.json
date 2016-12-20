@@ -1,6 +1,6 @@
 {
   "name": "vanilla-tools",
-  "version": "1.1.39",
+  "version": "1.1.41",
   "description": "vanilla-js tools for DRY",
   "main": "bundle.js",
   "scripts": {
@@ -11,8 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "bezier-easing": "^2.0.3",
-    "classlist.js": "^1.1.20150312",
-    "nitro-tools": "^0.2.4",
     "parole": "^1.0.1"
   },
   "devDependencies": {
