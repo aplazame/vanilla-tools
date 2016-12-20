@@ -39,7 +39,7 @@ _.q = require('parole');
 extend.extend(_, extend,
   require('./utils/key'),
   require('./utils/type'),
-  require('./utils/path'),
+  require('./utils/path')
 );
 
 _.extend(_, {
@@ -65,7 +65,7 @@ _.extend(_,
 	// _.attr(el, name, value)
   // _.tmpClass(el, className, duration, cb)
 
-  Scope: require('./utils/scope');
+  Scope: require('./utils/scope')
 );
 
 _.extend(_, {
