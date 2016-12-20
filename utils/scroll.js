@@ -8,16 +8,12 @@ function getScrollRoot () {
       return body;
     }
 
-    var cacheTop = ((typeof window.pageYOffset !== "undefined") ? window.pageYOffset : null), // cache the window's current scroll position
-        root;
+    var cacheTop = ((typeof window.pageYOffset !== "undefined") ? window.pageYOffset : null); // cache the window's current scroll position
 
-    html.scrollTop = body.scrollTop = cacheTop + (cacheTop > 0) ? -1 : 1;
-    // find root by checking which scrollTop has a value larger than the cache.
-    root = html;
+    html.scrollTop = cacheTop;
+    body.scrollTop = cacheTop + (cacheTop > 0) ? -1 : 1;
 
-    root.scrollTop = cacheTop; // restore the window's scroll position to cached value
-
-    return root; // return the scrolling root element
+    return html;
 }
 
 var ready = require('../fn/ready'),
