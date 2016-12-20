@@ -1,12 +1,20 @@
 
 module.exports = function (scroll) {
 
-	var onScroll = function () {
-	      document.documentElement.classList.toggle('scroll-top', !scroll.top() );
-	    };
+	var ready = require('../../fn/ready');
 
-	scroll.on(onScroll);
+	scroll.autoTopClass = function (topClass, topClassAlt) {
 
-	require('../../fn/ready')(onScroll);
+		topClass = topClass || 'js-scroll-top';
+		topClassAlt = topClassAlt || 'js-no-scroll-top';
+
+    ready(function () {
+      scroll.on(function () {
+        var top = scroll.top();
+        document.documentElement.classList.toggle(topClass, !top );
+        document.documentElement.classList.toggle(topClassAlt, top );
+      });
+    });
+	};
 
 };
