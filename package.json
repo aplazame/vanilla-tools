@@ -1,6 +1,6 @@
 {
   "name": "vanilla-tools",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "vanilla-js tools for DRY",
   "main": "bundle.js",
   "scripts": {
