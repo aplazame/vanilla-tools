@@ -13,7 +13,7 @@ function getScrollRoot () {
 
     html.scrollTop = body.scrollTop = cacheTop + (cacheTop > 0) ? -1 : 1;
     // find root by checking which scrollTop has a value larger than the cache.
-    root = (html.scrollTop !== cacheTop) ? html : body;
+    root = html;
 
     root.scrollTop = cacheTop; // restore the window's scroll position to cached value
 
