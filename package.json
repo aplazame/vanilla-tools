@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "browserify": "^13.1.1",
-    "eslint": "^3.12.2",
-    "nitro": "^1.8.9"
+    "eslint": "^3.12.2"
   }
 }
