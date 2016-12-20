@@ -1,10 +1,11 @@
 {
   "name": "vanilla-tools",
-  "version": "1.2.6",
+  "version": "1.2.5",
   "description": "vanilla-js tools for DRY",
-  "main": "bundle.js",
+  "main": "lib/bundle.js",
   "scripts": {
-    "test": "eslint lib && mkdir -p .tmp && browserify lib/bundle.js -o .tmp/bundle.js"
+    "test": "eslint lib && mkdir -p .tmp && browserify lib/bundle.js -o .tmp/bundle.js",
+    "prepublish": "cp package.json lib && cd lib"
   },
   "repository": "aplazame/vanilla-tools",
   "author": "Jesús Germade <jesus@aplazame.com>",
@@ -14,7 +15,6 @@
     "parole": "^1.0.1"
   },
   "devDependencies": {
-    "browserify": "^13.1.1",
     "eslint": "^3.12.2",
     "nitro": "^1.8.9"
   }
