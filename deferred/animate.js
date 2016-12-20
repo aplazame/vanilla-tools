@@ -1,5 +1,6 @@
 
-var $q = require('q-promise/no-native'),
+var Parole = require('parole'),
+    beizerEasing = require('bezier-easing'),
     timingFunctions = {},
     noop = function () {},
     getTimingFunction = function (timingFunctionName) {
@@ -7,17 +8,23 @@ var $q = require('q-promise/no-native'),
         if( timingFunctionName === 'linear' ) {
           timingFunctions[timingFunctionName] = function ( value ) { return value; };
         } else if( timingFunctionName === 'ease' ) {
-          timingFunctions[timingFunctionName] = require('bezier-easing')(.17,.67,.83,.67);
+          timingFunctions[timingFunctionName] = beizerEasing(.17,.67,.83,.67);
         } else if( timingFunctionName === 'ease-in' ) {
-          timingFunctions[timingFunctionName] = require('bezier-easing')(.42,0,1,1);
+          timingFunctions[timingFunctionName] = beizerEasing(.42,0,1,1);
         } else if( timingFunctionName === 'ease-out' ) {
-          timingFunctions[timingFunctionName] = require('bezier-easing')(0,0,.58,1);
+          timingFunctions[timingFunctionName] = beizerEasing(0,0,.58,1);
         } else if( timingFunctionName === 'ease-in-out' ) {
-          timingFunctions[timingFunctionName] = require('bezier-easing')(.42,0,.58,1);
+          timingFunctions[timingFunctionName] = beizerEasing(.42,0,.58,1);
         }
       }
       return timingFunctions[timingFunctionName];
     };
+
+var now = Date.now ? () {
+  return Date.now();
+} : function () {
+  return new Date().getTime();
+};
 
 function animate (progressFn, duration, atEnd, timingFunctionName) {
   if ( duration instanceof Function ) {
@@ -39,12 +46,12 @@ function animate (progressFn, duration, atEnd, timingFunctionName) {
 
   var stopped = false,
       timingFunction = getTimingFunction(timingFunctionName),
-      deferred = $q.defer();
+      deferred = Parole.defer();
 
   if( duration > 0 ) {
-    var start = Date.now(),
+    var start = now(),
         interval = setInterval(function () {
-          var elapsed = Date.now() - start;
+          var elapsed = now() - start;
 
           if( stopped ) {
             clearInterval(interval);

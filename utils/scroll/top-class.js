@@ -9,10 +9,11 @@ module.exports = function (scroll) {
 		topClassAlt = topClassAlt || 'js-no-scroll-top';
 
     ready(function () {
+      var _ = require('../dom');
       scroll.on(function () {
-        var top = scroll.top();
-        document.documentElement.classList.toggle(topClass, !top );
-        document.documentElement.classList.toggle(topClassAlt, top );
+        _.toggleClass(document.documentElement, topClass,
+          !_.toggleClass(document.documentElement, topClassAlt, scroll.top() )
+        );
       });
     });
 	};

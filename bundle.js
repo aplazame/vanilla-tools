@@ -1,5 +1,4 @@
 
-require('./browser-polyfills');
 // document.currentScript
 // Date.now()
 // HTMLElement.closest()
@@ -8,7 +7,7 @@ require('./browser-polyfills');
 // window.matchMedia
 // Element.prototype.matchesSelector
 
-require('classlist.js'); // https://developer.mozilla.org/es/docs/Web/API/Element/classList
+// require('classlist.js'); // https://developer.mozilla.org/es/docs/Web/API/Element/classList
 
 var extend = require('nitro-tools/extend');
 
@@ -19,7 +18,18 @@ function _ (selector, source) {
 }
 
 _.noop = function (value) { return value; };
-_.q = require('q-promise/no-native');
+_.once = function (fn) {
+  return function () {
+    if( fn ) fn.apply(this, arguments);
+    fn = null;
+  };
+};
+
+_.usePolyfills = _.once(function () {
+  require('./browser-polyfills');
+});
+
+_.q = require('parole');
 
 extend.extend(_, extend);
 

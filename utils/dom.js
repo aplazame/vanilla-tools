@@ -1,9 +1,42 @@
 
+var classListEnabled = !!document.createElement('div').classList;
+
+var classListHas = classListEnabled ? function (el, className) {
+      return el.classList.contains(className);
+    } : function (el, className) {
+      return new RegExp('\\b' + (className || '') + '\\b','').test(el.className);
+    },
+    classListAdd = classListEnabled ? function (el, className) {
+      el.classList.add(className);
+    } : function (el, className) {
+      if( !classListHas(el, className) ) {
+        el.className += ' ' + className;
+      }
+    },
+    classListRemove = classListEnabled ? function (el, className) {
+      el.classList.remove(className);
+    } : function (el, className) {
+      el.className = el.className.replace(new RegExp('\\s*' + className + '\\s*','g'), ' ');
+    };
+
 var _dom = {
   currentScript: document.currentScript || (function() {
     var scripts = document.getElementsByTagName('script');
     return scripts[scripts.length - 1];
   })(),
+  addClass: classListAdd,
+  removeClass: classListRemove,
+  hasClass: classListHas,
+  toggleClass: function (el, className, toggle) {
+    toggle = toggle === undefined ? !classListHas(el, className) : toggle;
+
+    if( toggle ) {
+      classListRemove(el, className);
+    } else {
+      classListAdd(el, className);
+    }
+    return toggle;
+  },
   create: function (tagName, attrs) {
     var el = document.createElement(tagName);
 
@@ -33,18 +66,18 @@ var _dom = {
 
     if( isCollection ) {
       [].forEach.call(el, function (_el) {
-        _el.classList.add(className);
+        classListAdd(_el, className);
       });
     } else {
-      el.classList.add(className);
+      classListAdd(el, className);
     }
     setTimeout(function () {
       if( isCollection ) {
         [].forEach.call(el, function (_el) {
-          _el.classList.remove(className);
+          classListRemove(_el, className);
         });
       } else {
-        el.classList.remove(className);
+        classListRemove(el, className);
       }
       if( cb instanceof Function ) {
         cb();

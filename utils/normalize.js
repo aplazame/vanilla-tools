@@ -2,15 +2,18 @@
 var normalize = {
   isTouchDevice: 'ontouchstart' in document.documentElement,
   isMac: /^Mac/.test(navigator.platform),
-  isAndroid: /^Android/.test(navigator.platform)
-};
+  isAndroid: /^Android/.test(navigator.platform),
+  addHTMLClasses: function () {
+    var _ = require('./dom');
 
-document.documentElement.classList.add( normalize.isTouchDevice ? 'touch' : 'no-touch' );
-if( normalize.isMac ) {
-  document.documentElement.classList.add('is-mac');
-}
-if( normalize.isAndroid ) {
-  document.documentElement.classList.add('is-android');
-}
+    _.addClass(document.documentElement, normalize.isTouchDevice ? 'touch' : 'no-touch' );
+    if( normalize.isMac ) {
+      _.addClass(document.documentElement, 'is-mac');
+    }
+    if( normalize.isAndroid ) {
+      _.addClass(document.documentElement, 'is-android');
+    }
+  }
+};
 
 module.exports = normalize;

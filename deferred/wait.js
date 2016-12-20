@@ -1,5 +1,5 @@
 
-var $q = require('q-promise/no-native'),
+var Parole = require('parole'),
 	wait = function (delay, callback) {
 		if( delay instanceof Function ) {
 			delay = [callback, callback = delay][0];
@@ -10,7 +10,7 @@ var $q = require('q-promise/no-native'),
 		if( typeof delay !== 'number' ) {
 			throw new Error('delay should be a Number');
 		}
-		return $q(function (resolve, reject) {
+		return new Parole(function (resolve, reject) {
 			setTimeout(function () {
 				resolve();
 				if( callback ) {

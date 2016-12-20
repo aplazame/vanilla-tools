@@ -1,6 +1,6 @@
 {
   "name": "vanilla-tools",
-  "version": "1.1.35",
+  "version": "1.1.36",
   "description": "vanilla-js tools for DRY",
   "main": "bundle.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "bezier-easing": "^2.0.3",
     "classlist.js": "^1.1.20150312",
     "nitro-tools": "^0.2.4",
-    "q-promise": "^0.3.7"
+    "parole": "^1.0.1"
   },
   "devDependencies": {
     "nitro": "^1.8.9"
