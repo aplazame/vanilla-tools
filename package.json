@@ -10,11 +10,11 @@
   "author": "Jesús Germade <jesus@aplazame.com>",
   "license": "ISC",
   "dependencies": {
-    "bezier-easing": "^2.0.3",
-    "parole": "^1.0.1"
+    "bezier-easing": "2.0.3",
+    "parole": "1.1.17"
   },
   "devDependencies": {
-    "browserify": "^13.1.1",
-    "eslint": "^3.12.2"
+    "browserify": "16.2.2",
+    "eslint": "4.19.1"
   }
 }
