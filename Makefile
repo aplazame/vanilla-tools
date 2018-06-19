@@ -1,7 +1,13 @@
 # --- vanilla-tools
 
-test:
-	npm test
+lint:
+	$(shell npm bin)/eslint lib
+
+test: lint
+	$(shell npm bin)/mocha tests
+
+bundle:
+	mkdir -p .tmp && browserify lib/bundle.js -o .tmp/bundle.js
 
 npm.version:
 	npm version patch -m "Increasing version to %s"
