@@ -1,6 +1,6 @@
 [![github-banner](https://cloud.githubusercontent.com/assets/2305833/18123300/96708ec8-6f6d-11e6-8f3e-0de81467425e.png)](https://aplazame.com/)
 
-[![aplazame](https://cdn.aplazame.com/dev/badge-aplazame.svg)](https://github.com/aplazame)
+[![aplazame](https://cdn.aplazame.com/dev/aplazame-badge.svg)](https://github.com/aplazame)
 [![npm version](https://badge.fury.io/js/vanilla-tools.svg)](https://www.npmjs.com/package/vanilla-tools)
 
 
