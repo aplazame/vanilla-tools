@@ -16,6 +16,6 @@
   "devDependencies": {
     "browserify": "16.2.2",
     "eslint": "4.19.1",
-    "mocha": "^5.2.0"
+    "mocha": "^10.0.0"
   }
 }
